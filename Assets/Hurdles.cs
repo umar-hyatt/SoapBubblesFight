@@ -11,7 +11,7 @@ public class Hurdles : MonoBehaviour
         {
             UIManager.instance.gameState = GameState.LevelFail;
             print("here is level fail");
-            UIManager.instance.gameOverPanel.SetActive(true);
+            GameManager.instance.LevelFail();
 
             PlayerMovement.instance.IsWalking = false;
             PlayerMovement.instance.PlayerAnim.SetBool("isRunning", false);

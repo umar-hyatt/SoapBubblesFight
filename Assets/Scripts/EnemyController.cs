@@ -1,27 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ommy.Audio;
 using UnityEngine;
-using System.Threading.Tasks;
 public class EnemyController : MonoBehaviour
 {
-    // public enum EnemyType
-    // { 
-    //     normal,storng,gaint
-    // }
-    // EnemyType type;
     public float dicreamentSize;
     public float speed, upwardSpeed = 5f;
     public GameObject bubble;
-    Vector3 movepos;
     public float chaseRange;
     public Rigidbody rb;
-    public Animator animator;
     public static Transform target;
+    public bool inBubble;
     bool isCollided = false, isRunning = true, isFirstCollision = true;
     private void Start()
     {
         target = PlayerMovement.instance.transform;
-       
     }
     private void Update()
     {
@@ -65,24 +58,31 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
-       /* if (other.transform.tag == "Player")
-        {
-            UIManager.instance.gameState = GameState.LevelFail;
-            UIManager.instance.gameOverPanel.SetActive(true);
-
-        }*/
-         if (other.transform.tag == "Bubble")
+        if(inBubble) return;
+        if (other.transform.tag == "Bubble")
         {
             if (isFirstCollision == true)
             {
                 isFirstCollision = false;
-                other.GetComponent<BubbleController>().SizeDecrement(dicreamentSize);
+                //other.GetComponent<BubbleController>().SizeDecrement(dicreamentSize);
+                if(other.GetComponent<BubbleController>() != null)
+                {
+                    other.GetComponent<BubbleController>().SizeDecrement(dicreamentSize);
+                }
                 isRunning = false;
                 isCollided = true;
+                inBubble = true;
+                AudioManager.Instance.PlaySFX(SFX.bubbleCook);
                 // target = null;
                 Destroy(other.gameObject);
             }
+        }
+        else if (other.transform.tag == "Player")
+        {
+            UIManager.instance.gameState = GameState.LevelFail;
+            Debug.Log(name+" p "+other.name);
+            //Debug.Break();
+            GameManager.instance.LevelFail();
         }
     }
 }

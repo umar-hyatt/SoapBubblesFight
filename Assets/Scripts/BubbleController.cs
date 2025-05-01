@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ommy.Audio;
 using UnityEngine;
 
 public class BubbleController : MonoBehaviour
@@ -8,26 +9,18 @@ public class BubbleController : MonoBehaviour
     public Behaviour currentBehaviour;
     public float changeSize;
     public float minBubbleSize;
-    Transform bubble;
     Vector3 playerPos;
     public float bubbleOffsetY ,bubbleOffsetZ;
-    public bool isHold = true;
-
     public float farwardSpeed;
     public float maxSize;
-    public float firedBubbleRange;
-    public GameObject prefab;
     private void Start()
     {
         currentBehaviour = FollowPlayer;
         currentBehaviour += IncreaseBubbleSize;
     }
-    bool isTouched;
-    bool isShoot;
     void Update()
     {
         currentBehaviour?.Invoke();
-
     }
     public void IncreaseBubbleSize()
     {
@@ -52,10 +45,7 @@ public class BubbleController : MonoBehaviour
             }
             else
             {
-                UIManager.instance.gameOverPanel.SetActive(true);
-                Debug.Log("You lose");
-                UIManager.instance.gameState = GameState.LevelFail;
-                //Time.timeScale=0;
+                GameManager.instance.LevelFail();
             }
         }
     }
@@ -63,7 +53,6 @@ public class BubbleController : MonoBehaviour
     public void MoveFarward()
     {
         transform.position += new Vector3(0, 0, farwardSpeed * Time.deltaTime);
-
     }
     private void OnBecameInvisible()
     {

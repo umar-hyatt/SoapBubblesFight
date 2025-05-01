@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
     public Vector3 offSet;
     public float camlerpx;
     private void Start()
-    {
+    {    
+        Camera.main.depthTextureMode = DepthTextureMode.Depth; // or DepthTextureMode.DepthNormals
         offSet = transform.position - target.transform.position;
     }
     private void LateUpdate()
