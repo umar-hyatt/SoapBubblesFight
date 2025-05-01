@@ -1,5 +1,5 @@
 # ninja log v5
-156	259	1746019878598633233	/Users/umar/Desktop/Unity/Projects Git/SoapBubblesFight/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4o3z642c/obj/arm64-v8a/libswappywrapper.so	31243f1a350205e9
-0	155	1746019878498477936	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a54d68b730c5af34
 0	506	1746104167755356853	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a54d68b730c5af34
 507	685	1746104167932938596	/Users/umar/Desktop/Unity/Projects Git/SoapBubblesFight/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4o3z642c/obj/arm64-v8a/libswappywrapper.so	31243f1a350205e9
+0	320	1746111164645525815	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	a54d68b730c5af34
+320	504	1746111164826794656	/Users/umar/Desktop/Unity/Projects Git/SoapBubblesFight/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4o3z642c/obj/arm64-v8a/libswappywrapper.so	31243f1a350205e9
